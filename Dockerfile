@@ -7,12 +7,12 @@ RUN apt-get update                                                      && \
 # build and install vim
     git clone https://github.com/vim/vim.git                            && \
     cd vim                                                              && \
-    ./configure --with-features=huge 			     	                    \
+    ./configure --with-features=huge                                       \
         --enable-gui=no --without-x --prefix=/usr                       && \
     make VIMRUNTIMEDIR=/usr/share/vim/vim74                             && \
     make install                                                        && \
     rm -rf /tmp                                                         && \
-    apt-get remove ncurses-dev libtolua-dev
+    apt-get autoremove 
 
 # add dev user
 RUN adduser dev --disabled-password --gecos ""                          && \
